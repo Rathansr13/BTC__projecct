@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Brain Tumor Detection Logo">
+            </div>
+            
+        </div>
+        
+    <main>
+      <div class="container">
+          <div class="intro">
+              <h1>Brain Tumor Detection System</h1>
+              <p>Upload an MRI scan to detect the presence of a brain tumor.</p>
+          </div>
+          <div class="upload-form">
+              <form id="uploadForm" method="post" enctype="multipart/form-data">
+                  <label for="file-upload" class="custom-file-upload">
+                      Choose File
+                  </label>
+                  <input id="file-upload" type="file" name="file" accept="image/*" required onchange="previewImage(event)">
+                  <br>
+                  <button type="submit">Predict</button>
+              </form>
+              <div id="image-preview" class="image-preview">
+                  <img id="preview" src="#" alt="Image Preview" style="display: none;">
+              </div>
+              <div id="result">
+                  <!-- Result will be displayed here -->
+              </div>
+          </div>
+      </div>
+  </main>
+    </header>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Brain Tumor Detection. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function(){
+                const output = document.getElementById('preview');
+                output.src = reader.result;
+                output.style.display = 'block';
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData();
+            formData.append('file', document.getElementById('file-upload').files[0]);
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `<h4><strong style="color: black;">Result: ${data.result}</strong></h4>`;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

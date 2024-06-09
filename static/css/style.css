@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+header {
+  background: #35424a;
+  color: #ffffff;
+  padding-top: 30px;
+  min-height: 70px;
+  border-bottom: #e8491d 3px solid;
+  height: 100vh;
+}
+
+header .logo {
+  float: left;
+}
+
+header .logo img {
+  height: 50px;
+}
+
+header nav {
+  float: right;
+  margin-top: 10px;
+}
+
+header nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header nav ul li {
+  display: inline;
+  margin-left: 20px;
+}
+
+header nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header nav ul li a:hover {
+  color: #e8491d;
+}
+
+main {
+  padding: 20px 0;
+}
+
+main .intro {
+  text-align: center;
+  padding: 20px;
+}
+
+main .intro h1 {
+  margin-bottom: 10px;
+}
+
+main .intro p {
+  font-size: 1.2em;
+}
+
+main .upload-form {
+  text-align: center;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+main .upload-form input[type="file"] {
+  display: none;
+}
+
+main .upload-form .custom-file-upload {
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #35424a;
+  color: #ffffff;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+main .upload-form .custom-file-upload:hover {
+  background: #e8491d;
+}
+
+main .upload-form button {
+  background: #35424a;
+  color: #ffffff;
+  border: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 150px;
+  margin: 10px;
+}
+
+main .upload-form button:hover {
+  background: #e8491d;
+}
+
+main .image-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .image-preview img {
+  width: 200x;
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#result h4 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+footer {
+  background: #35424a;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+footer p {
+  margin: 0;
+}
+

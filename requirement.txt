@@ -1,0 +1,21 @@
+opencv-python-headless
+numpy
+Pillow
+scikit-learn
+tensorflow
+keras
+
+
+  <h2 class="text-center font-semibold underline ">Brain Tumor Detection</h2>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Upload an Image:</label>
+                <input type="file" class="form-control-file" id="file" name="file" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+        <div id="result" class="mt-4">
+            {% if result %}
+                <h4>Result: {{ result }}</h4>
+            {% endif %}
+        </div>
